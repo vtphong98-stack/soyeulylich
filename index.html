@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Điền Thông Tin Học Sinh</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: auto; padding: 20px; }
+        fieldset { border: 1px solid #ccc; padding: 10px; margin-bottom: 20px; }
+        legend { font-weight: bold; }
+        label { display: block; margin-bottom: 5px; }
+        input, select, textarea { width: 100%; padding: 8px; margin-bottom: 10px; box-sizing: border-box; }
+        button { padding: 10px 20px; background: #4CAF50; color: white; border: none; cursor: pointer; }
+        button:hover { background: #45a049; }
+    </style>
+</head>
+<body>
+    <h1>Form Điền Thông Tin Học Sinh (Dựa trên DuLieuLop12C5.xls)</h1>
+    <form id="studentForm" action="https://script.google.com/macros/s/AKfycbxbehJJjx8nrPw3XpwKgK5pylIq1TECDOq9pl3gLhvFUakbkbKY71hMPp7LiQJ2TnIu/exec" method="post">
+        <!-- Section 1: Thông tin cơ bản (từ LyLich1) -->
+        <fieldset>
+            <legend>Thông Tin Cá Nhân</legend>
+            <label>Họ và Tên HS:</label>
+            <input type="text" name="fullName" required><br><br>
+
+            <label>Ngày Tháng Năm Sinh:</label>
+            <input type="date" name="birthDate" required><br><br>
+
+            <label>Nơi Sinh (Tỉnh/Thành phố):</label>
+            <input type="text" name="birthPlace" required><br><br>
+
+            <label>Giới Tính:</label>
+            <input type="radio" name="gender" value="Nam"> Nam
+            <input type="radio" name="gender" value="Nữ"> Nữ<br><br>
+
+            <label>Dân Tộc:</label>
+            <select name="ethnicity">
+                <option value="Kinh">Kinh</option>
+                <option value="Khác">Khác</option>
+            </select><br><br>
+
+            <label>Diện Chính Sách (SHN, SCN, KK,...):</label>
+            <input type="text" name="policy"><br><br>
+
+            <label>Ban Cán Sự Lớp (LT, LP, TT,...):</label>
+            <input type="text" name="classRole"><br><br>
+        </fieldset>
+
+        <!-- Section 2: Địa chỉ (từ LyLich1) -->
+        <fieldset>
+            <legend>Chỗ Ở Hiện Tại</legend>
+            <label>Tổ/Ấp/Khóm:</label>
+            <input type="text" name="addressGroup" required><br><br>
+
+            <label>Xã/Phường:</label>
+            <input type="text" name="addressWard" required><br><br>
+
+            <label>Huyện/Quận:</label>
+            <input type="text" name="addressDistrict" required><br><br>
+
+            <label>Tỉnh/Thành phố:</label>
+            <input type="text" name="addressProvince" required><br><br>
+        </fieldset>
+
+        <!-- Section 3: Thông tin cha mẹ (từ LyLich1) -->
+        <fieldset>
+            <legend>Thông Tin Cha Mẹ</legend>
+            <label>Họ Tên Cha:</label>
+            <input type="text" name="fatherName"><br><br>
+            <label>Nghề Nghiệp Cha:</label>
+            <input type="text" name="fatherJob"><br><br>
+
+            <label>Họ Tên Mẹ:</label>
+            <input type="text" name="motherName"><br><br>
+            <label>Nghề Nghiệp Mẹ:</label>
+            <input type="text" name="motherJob"><br><br>
+        </fieldset>
+
+        <!-- Section 4: Liên lạc và KQ năm trước (từ LyLich1) -->
+        <fieldset>
+            <legend>Thông Tin Liên Lạc & Kết Quả Năm Trước</legend>
+            <label>SĐT Liên Lạc (bắt đầu bằng 0):</label>
+            <input type="tel" name="contactPhone" pattern="0[0-9]{9}" required><br><br>
+
+            <label>Hạnh Kiểm (Tốt, Khá,...):</label>
+            <input type="text" name="conduct"><br><br>
+
+            <label>Học Lực (Giỏi, Khá, XS,...):</label>
+            <input type="text" name="academic"><br><br>
+        </fieldset>
+
+        <!-- Section 5: Thông tin bổ sung (từ LyLich2) -->
+        <fieldset>
+            <legend>Thông Tin Bổ Sung</legend>
+            <label>Địa Chỉ Email:</label>
+            <input type="email" name="email" required><br><br>
+
+            <label>Số CMND/Căn Cước:</label>
+            <input type="text" name="idNumber" required><br><br>
+
+            <label>SĐT HS:</label>
+            <input type="tel" name="studentPhone" pattern="0[0-9]{9}"><br><br>
+
+            <label>Cân Nặng (kg):</label>
+            <input type="number" name="weight" step="0.1"><br><br>
+
+            <label>Chiều Cao (cm):</label>
+            <input type="number" name="height"><br><br>
+
+            <label>Biết Bơi:</label>
+            <input type="checkbox" name="canSwim"><br><br>
+
+            <label>Bệnh Về Mắt:</label>
+            <input type="text" name="eyeDisease"><br><br>
+
+            <label>Tiền Sử Bệnh:</label>
+            <input type="text" name="medicalHistory"><br><br>
+
+            <label>Phương Tiện Di Chuyển:</label>
+            <input type="radio" name="transport" value="Xe đạp"> Xe Đạp
+            <input type="radio" name="transport" value="Xe máy"> Xe Máy/Máy Điện
+            <input type="radio" name="transport" value="Khác"> Khác<br><br>
+
+            <label>Học Trực Tuyến:</label>
+            <input type="radio" name="onlineLearning" value="Đủ điều kiện"> Đủ ĐK Học
+            <input type="radio" name="onlineLearning" value="Không đủ"> Không Đủ ĐK
+            <input type="radio" name="onlineLearning" value="Nhờ bạn"> Có Thể Nhờ Bạn<br><br>
+
+            <label>Ghi Chú:</label>
+            <textarea name="notes"></textarea><br><br>
+        </fieldset>
+
+        <button type="submit">Gửi Thông Tin</button>
+    </form>
+
+    <script>
+        document.getElementById('studentForm').addEventListener('submit', function(event) {
+            // Validate cơ bản trước submit
+            const email = document.querySelector('input[name="email"]').value;
+            const phone = document.querySelector('input[name="contactPhone"]').value;
+            if (!email.includes('@')) {
+                alert('Email không hợp lệ!');
+                event.preventDefault();
+                return;
+            }
+            if (!phone.startsWith('0')) {
+                alert('SĐT phải bắt đầu bằng 0!');
+                event.preventDefault();
+                return;
+            }
+            // Submit sẽ gửi đến Apps Script
+        });
+    </script>
+</body>
+</html>
